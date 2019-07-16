@@ -1,0 +1,35 @@
+<div *ngIf=switchToLoginPage class="login">
+    <div class="headingLogin">
+        <br/><h3>Sign in to Bench Workflow System</h3>
+    </div>
+    <form (ngSubmit)="checkLogin(mail,pass)">
+        <div class="card align-items-center container containerLogin">
+            <br/><div class="formElements">
+                <div *ngIf=invalidLogin class="text-danger">
+                        <br/>{{errorMessage}}<br/><br/>
+                </div>
+                
+                <div class="mailId">
+                    <label>Mail ID</label>
+                    <input type="email" required class="form-control" name="mailid" 
+                        [(ngModel)]=mailid #mail="ngModel" email>
+                    
+                    <div *ngIf="mail.invalid; else elseBlock" class="text-danger warningMessage">
+                        <div *ngIf="mail.errors.email && !mail.errors.minlength">
+                            Enter a valid Mail ID
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="password">
+                    <br/><label>Password</label>
+                    <input type="password" class="form-control" name="password" 
+                        [(ngModel)]="password" #pass="ngModel" required>
+                </div>
+            </div>
+            
+            <br/><button type="submit" [disabled]="checkValidLogin(mail,pass)" class="btn btn-primary">Login</button><br/>
+        </div>
+    </form>
+
+</div>

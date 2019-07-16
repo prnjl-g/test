@@ -1,0 +1,37 @@
+.uploadBody{
+    text-align: center;
+    margin-top: 5%;
+}
+.upload-heading{
+    font-size: 2.5em;
+}
+.uploadButton{
+    height:70px;
+    width:250px;
+    font-size: 22px;
+    font-weight: bold;
+    background: #e5322d;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+.progressbar{
+    width:30%;
+    margin-left: 35%;
+    margin-top:3%;
+}
+.uploadInputButton{
+    position: absolute;
+  font-size: 30px;
+  margin-left:-50%;
+  margin-top:-2%;
+  height:70px;
+  width:250px;
+  opacity: 0;
+}
+.uploadText{
+    margin-top:10px;
+}
+.fileName{
+    margin-right: 3%;
+}

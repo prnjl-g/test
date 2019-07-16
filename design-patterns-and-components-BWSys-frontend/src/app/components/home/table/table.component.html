@@ -1,0 +1,49 @@
+<div class="heading">
+    <h2>Bench Employee Details</h2> 
+
+<fa-icon (click)="openFullscreen()" [icon]="['fa', 'expand']" size="2x"></fa-icon>
+<!-- <fa-icon (click)="closeFullscreen()" [icon]="['fa', 'compress']" size="2x"></fa-icon> -->
+
+        <div class="tableContainer scrollbar overflow-auto force-overflow" id="tableID" > 
+            <table *ngIf="data" class="table table-striped">
+                    <thead class="coulmn_head">
+                    <tr>
+                        <th class="coulmn_head" *ngFor="let x of header">
+                            <div *ngIf="!message.includes(x)">
+                                <div class="dropdown">
+                                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                {{x}}
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngIf="metaData">
+                                            <div class="dropdown-item" *ngFor="let y of metaData[x] | keyvalue">
+                                                <mat-checkbox [checked]="myModel" class="example-margin" (click)="addFilter(x,y.value)">
+                                                    {{y.value}}
+                                                </mat-checkbox>
+                                            </div>
+                                        </div>
+                                      </div>
+                            </div>
+                        </th>
+                        <th>Edit</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let employee of data">
+                                <td *ngFor="let x of header">
+                                    <div *ngIf="!message.includes(x)">
+                                        {{employee.details[x]}}
+                                    </div>
+                                </td>
+                            <td><button (click)="goToInfoPage(employee)" type="button" class="btn btn-info">edit</button></td>
+                        </tr>
+                    </tbody>
+            </table>
+        </div>
+
+    <div class="d-flex justify-content-center">
+        <ngb-pagination [collectionSize]="totalRecord" [(page)]="currentPage" [pageSize]="pageSize" 
+            [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="pager($event)"></ngb-pagination>
+    </div>
+    
+</div> 

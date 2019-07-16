@@ -1,0 +1,17 @@
+.uploadButton{
+    height:70px;
+    width:250px;
+    font-size: 22px;
+    font-weight: bold;
+    background: #e5322d;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+.container{
+    text-align: center;
+    margin-top:10%;
+}
+.uploadText{
+    margin-top:10px;
+}

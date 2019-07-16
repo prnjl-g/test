@@ -1,0 +1,32 @@
+<div class="uploadBody">
+    <br/><br/><div class="upload-heading">Upload an Excel File</div><br/><br/>
+    <div *ngIf="!uploader.queue.length" class="file btn btn-danger uploadButton">
+        <input type="file" name="file" class="uploadInputButton" ng2FileSelect [uploader]="uploader" />
+        <div class="uploadText">Select Excel File</div>
+    </div>
+
+    <div *ngIf="uploader.queue.length">
+        <div class="file btn btn-danger uploadButton">
+                <input type="button" name="file" class="uploadInputButton" (click)="uploader.queue[0].upload()" />
+                <div class="uploadText">Click to Upload</div>
+        </div>
+        <br/><br/><br/>
+        <strong class="fileName">{{ uploader?.queue[0]?.file?.name }}</strong>
+        <button type="button" class="btn btn-danger btn-xs removeButton"
+            (click)="uploader?.queue[0]?.remove()"> Remove
+        </button>
+
+        <p *ngIf="(uploader.progress==100)" class="progressbar">
+            <ngb-progressbar type="success" [value]="uploader.progress" [striped]="true" [animated]="true">
+            </ngb-progressbar>
+        </p>
+        <p *ngIf="uploader.progress == 100">Done uploading...{{goToHomePage()}}</p>
+    </div>
+    <br/><br/>
+
+    <div>
+        Last uploaded by Sai Manjunath on 03 July 2019
+    </div>
+    
+</div>
+
